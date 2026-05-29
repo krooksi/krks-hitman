@@ -11,12 +11,12 @@ Config.NPC = {
     model = 's_m_m_highsec_01',
     coords = vector4(-1154.74, -1515.82, 4.38, 95),
     scenario = 'WORLD_HUMAN_SMOKING',
-    targetLabel = 'Talk to the contact',
+    targetLabel = 'Räägi kontaktiga',
     icon = 'fa-solid fa-user-secret'
 }
 
--- Who can use it?
--- If UseGangWhitelist = false, everyone can use it.
+-- Kes saavad kasutada?
+-- Kui UseGangWhitelist = false, saavad kõik kasutada.
 Config.UseGangWhitelist = false
 Config.AllowedGangs = {
     cartel = true,
@@ -26,7 +26,7 @@ Config.AllowedGangs = {
     families = true,
 }
 
--- Police job names for dispatch/count
+-- Politsei tööde nimed dispatch/count jaoks
 Config.PoliceJobs = {
     police = true,
     sheriff = true,
@@ -36,8 +36,8 @@ Config.MinPolice = 0
 Config.ContractCooldownMinutes = 20
 Config.MaxActiveContractMinutes = 20
 
--- Payments
-Config.PaymentItem = 'black_money' -- ox_inventory item. If you want cash, set this to 'cash' and check the AddReward function in server/main.lua.
+-- Tasud
+Config.PaymentItem = 'black_money' -- ox_inventory item. Kui tahad cashi, pane 'cash' ja vaata server/main.lua AddReward funktsiooni.
 Config.ReputationEnabled = true
 Config.ReputationPerSuccess = 1
 Config.FailReputationLoss = 1
@@ -47,12 +47,12 @@ Config.Dispatch = {
     enabled = true,
     chanceOnStart = 15,
     chanceOnKill = 40,
-    message = 'Suspicious armed activity reported in the area',
+    message = 'Kahtlane relvastatud tegevus piirkonnas',
     useCustomEvent = false,
     customClientEvent = 'island_dispatch:client:hitmanAlert'
 }
 
--- Discord logs
+-- Discord logid
 Config.Discord = {
     enabled = false,
     webhook = '',
@@ -61,20 +61,20 @@ Config.Discord = {
     colorFail = 16711680
 }
 
--- Target blip
+-- Blip sihtmärgile
 Config.TargetBlip = {
     sprite = 310,
     color = 1,
     scale = 0.85,
-    label = 'Target'
+    label = 'Sihtmärk'
 }
 
--- Contracts. The target spawns at one random coords location.
+-- Contractid. Target spawnib ühe random coords valiku peal.
 Config.Contracts = {
     {
         id = 'low_1',
-        label = 'Low Risk',
-        description = 'Eliminate a low-priority NPC target.',
+        label = 'Madal risk',
+        description = 'Likvideeri madala tähtsusega NPC sihtmärk.',
         difficulty = 'easy',
         reward = { min = 2500, max = 5000 },
         requiredItem = nil,
@@ -90,8 +90,8 @@ Config.Contracts = {
     },
     {
         id = 'mid_1',
-        label = 'Medium Risk',
-        description = 'The target may be armed and in a safer position.',
+        label = 'Keskmine risk',
+        description = 'Sihtmärgil võib olla relv ja turvalisem positsioon.',
         difficulty = 'medium',
         reward = { min = 6500, max = 11000 },
         requiredItem = nil,
@@ -107,8 +107,8 @@ Config.Contracts = {
     },
     {
         id = 'high_1',
-        label = 'High Risk',
-        description = 'A harder target, better payment, and a higher chance of police notification.',
+        label = 'Kõrge risk',
+        description = 'Raskem sihtmärk, parem tasu ja suurem politsei teavituse chance.',
         difficulty = 'hard',
         reward = { min = 14000, max = 23000 },
         requiredItem = 'encrypted_contract',
@@ -126,16 +126,16 @@ Config.Contracts = {
 
 Config.Locale = {
     menuTitle = 'Hitman Contracts',
-    menuDesc = 'Choose an NPC target. Contracts are not meant to be used against real players.',
-    noGang = 'You are not in the required gang.',
-    noPolice = 'There are not enough police officers in the city.',
-    cooldown = 'You must wait before starting a new contract.',
-    alreadyActive = 'You already have an active contract.',
-    noItem = 'You are missing the required item: %s',
-    started = 'Contract started. The target has been marked on your GPS.',
-    success = 'Target eliminated. Payment received: $%s',
-    failed = 'Contract failed.',
-    expired = 'Contract expired.',
-    targetEscaped = 'The target escaped or disappeared.',
-    cancelled = 'Contract cancelled.',
+    menuDesc = 'Vali NPC sihtmärk. Contractid ei ole mõeldud päris mängijate vastu.',
+    noGang = 'Sul puudub õige gang.',
+    noPolice = 'Linnas pole piisavalt politseid.',
+    cooldown = 'Sa pead enne uut contracti ootama.',
+    alreadyActive = 'Sul on juba aktiivne contract.',
+    noItem = 'Sul puudub vajalik item: %s',
+    started = 'Contract alustatud. Sihtmärk on märgitud GPS-is.',
+    success = 'Sihtmärk kõrvaldatud. Tasu saadud: $%s',
+    failed = 'Contract ebaõnnestus.',
+    expired = 'Contract aegus.',
+    targetEscaped = 'Sihtmärk põgenes või kadus.',
+    cancelled = 'Contract tühistatud.',
 }
