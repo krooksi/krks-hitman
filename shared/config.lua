@@ -1,4 +1,3 @@
-```lua
 Config = {}
 
 Config.Debug = false
