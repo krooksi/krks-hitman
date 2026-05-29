@@ -1,25 +1,25 @@
-# island_hitman
+# KROOKS HITMAN
 
-NPC-only Hitman Contracts script Island RP / QBCore serverile.
+NPC-only Hitman Contracts script for QBCore servers.
 
 ## Dependencies
 
-- qb-core
-- ox_lib
-- ox_target
-- ox_inventory
-- oxmysql
+* qb-core
+* ox_lib
+* ox_target
+* ox_inventory
+* oxmysql
 
 ## Install
 
-1. Pane kaust `island_hitman` oma `resources` kausta.
-2. Lisa `server.cfg` sisse:
+1. Put the `krks-hitman` folder into your `resources` folder.
+2. Add this to your `server.cfg`:
 
 ```cfg
-ensure island_hitman
+ensure krks-hitman
 ```
 
-Soovitatud ensure order:
+Recommended ensure order:
 
 ```cfg
 ensure oxmysql
@@ -27,22 +27,22 @@ ensure ox_lib
 ensure qb-core
 ensure ox_target
 ensure ox_inventory
-ensure island_hitman
+ensure krks-hitman
 ```
 
-## Kasutamine
+## Usage
 
-- NPC kaudu: mine Config.NPC.coords asukohta ja räägi kontaktiga.
-- Commandiga: `/hitman`
+* Through the NPC: go to the `Config.NPC.coords` location and talk to the contact.
+* Through command: `/hitman`
 
-## Tähtis
+## Important
 
-See script on tehtud NPC sihtmärkide jaoks, mitte päris mängijate tapmise contractideks.
-Nii ei muutu server griefimiseks.
+This script is made for NPC targets, not contracts for killing real players.
+This prevents the server from turning into a griefing server.
 
-## Itemid ox_inventory jaoks
+## Items for ox_inventory
 
-Kui kasutad Config.Contracts high risk contractil `encrypted_contract`, lisa ox_inventory itemite faili:
+If you use `encrypted_contract` for the high risk contract in `Config.Contracts`, add this to your ox_inventory items file:
 
 ```lua
 ['encrypted_contract'] = {
@@ -50,61 +50,61 @@ Kui kasutad Config.Contracts high risk contractil `encrypted_contract`, lisa ox_
     weight = 100,
     stack = true,
     close = true,
-    description = 'Krüpteeritud illegaalne tööleping'
+    description = 'Encrypted illegal work contract'
 },
 ```
 
-Kui `Config.PaymentItem = 'black_money'`, peab sul ox_inventorys olema selline item olemas. Kui ei ole, lisa:
+If `Config.PaymentItem = 'black_money'`, you must have this item in ox_inventory. If you do not have it, add:
 
 ```lua
 ['black_money'] = {
-    label = 'Must raha',
+    label = 'Black Money',
     weight = 0,
     stack = true,
     close = true,
-    description = 'Pesemata raha'
+    description = 'Unwashed money'
 },
 ```
 
-Või muuda configis:
+Or change this in the config:
 
 ```lua
 Config.PaymentItem = 'cash'
 ```
 
-Siis annab script QBCore cash raha.
+Then the script will give QBCore cash money.
 
 ## Dispatch
 
-Default dispatch saadab ox_lib notify on-duty politseinikele.
-Kui sul on enda dispatch, muuda configis:
+The default dispatch sends an ox_lib notify to on-duty police officers.
+If you have your own dispatch, change this in the config:
 
 ```lua
 Config.Dispatch.useCustomEvent = true
-Config.Dispatch.customClientEvent = 'sinu_dispatch:event'
+Config.Dispatch.customClientEvent = 'your_dispatch:event'
 ```
 
-Siis saad client/main.lua `PoliceDispatch` funktsiooni järgi oma dispatchi külge panna.
+Then you can connect your own dispatch using the `PoliceDispatch` function in `client/main.lua`.
 
 ## Discord logs
 
-Configis:
+In the config:
 
 ```lua
 Config.Discord.enabled = true
-Config.Discord.webhook = 'SINU_WEBHOOK'
+Config.Discord.webhook = 'YOUR_WEBHOOK'
 ```
 
-Logib:
+Logs:
 
-- contract alustamine
-- contract lõpetamine
-- contract failimine
-- disconnect aktiivse contractiga
+* contract started
+* contract completed
+* contract failed
+* disconnect with an active contract
 
 ## Gang whitelist
 
-Kui tahad, et ainult kindlad gangid saavad kasutada:
+If you want only certain gangs to be able to use it:
 
 ```lua
 Config.UseGangWhitelist = true
@@ -114,17 +114,17 @@ Config.AllowedGangs = {
 }
 ```
 
-Gang nimi peab olema QBCore gang name, mitte label.
+The gang name must be the QBCore gang name, not the label.
 
-## Config asukohad
+## Config locations
 
-NPC asukoht:
+NPC location:
 
 ```lua
 Config.NPC.coords = vector4(705.82, -966.91, 30.41, 177.0)
 ```
 
-Contractide sihtmärgi spawnid:
+Contract target spawn locations:
 
 ```lua
 Config.Contracts[1].coords = {
@@ -132,17 +132,21 @@ Config.Contracts[1].coords = {
 }
 ```
 
-## Võimalikud probleemid
+## Possible issues
 
-### Menüüd ei avane
-Kontrolli, et `ox_lib` on enne seda scripti ensuretud.
+### Menus do not open
 
-### Target ei ilmu
-Kontrolli, et `ox_target` töötab ja script on ensure orderis pärast ox_targetit.
+Make sure `ox_lib` is ensured before this script.
 
-### Tasu ei tule
-Kui kasutad black_money itemit, kontrolli, et see item on ox_inventory itemites olemas.
-Kui ei taha itemit, pane `Config.PaymentItem = 'cash'`.
+### Target does not appear
 
-### High risk contract ei alga
-Sul puudub `encrypted_contract` item või see pole ox_inventory itemites olemas.
+Make sure `ox_target` is working and that this script is ensured after ox_target in the ensure order.
+
+### Payment is not received
+
+If you use the black_money item, make sure that item exists in your ox_inventory items.
+If you do not want to use an item, set `Config.PaymentItem = 'cash'`.
+
+### High risk contract does not start
+
+You are missing the `encrypted_contract` item, or it does not exist in your ox_inventory items.
