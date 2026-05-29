@@ -150,3 +150,7 @@ If you do not want to use an item, set `Config.PaymentItem = 'cash'`.
 ### High risk contract does not start
 
 You are missing the `encrypted_contract` item, or it does not exist in your ox_inventory items.
+
+# PREVIEW
+<img width="341" height="381" alt="image" src="https://github.com/user-attachments/assets/7a63f7e5-ef2d-4ef3-87bd-1f9ae8c8e774" />
+
