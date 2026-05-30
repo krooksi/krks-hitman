@@ -155,3 +155,5 @@ Sul puudub `encrypted_contract` item või seda ei ole ox_inventory itemites olem
 
 <img width="341" height="381" alt="image" src="https://github.com/user-attachments/assets/7a63f7e5-ef2d-4ef3-87bd-1f9ae8c8e774" />
 
+## [Discord](https://discord.gg/TCv7mBAHgq)
+
